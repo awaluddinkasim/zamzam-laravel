@@ -1,0 +1,6 @@
+[02-Jan-2024 09:22:30 Asia/Jakarta] PHP Warning:  require(/home/egor7937/public_html/zamzam/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/egor7937/public_html/zamzam/index.php on line 34
+[02-Jan-2024 09:22:30 Asia/Jakarta] PHP Warning:  require(/home/egor7937/public_html/zamzam/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/egor7937/public_html/zamzam/index.php on line 34
+[02-Jan-2024 09:22:30 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Failed opening required '/home/egor7937/public_html/zamzam/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/egor7937/public_html/zamzam/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/egor7937/public_html/zamzam/index.php on line 34
