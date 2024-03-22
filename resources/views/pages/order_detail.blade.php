@@ -75,6 +75,20 @@
                                         <td class="text-center" colspan="5">Tidak ada item</td>
                                     </tr>
                                 @endforelse
+                                @if ($order->items)
+                                    <tr>
+                                        <td colspan="6" class="text-end fw-bold">
+                                            Subtotal
+                                        </td>
+                                        <td>Rp. {{ number_format($order->subtotal_harga) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-end fw-bold">
+                                            Total selama {{ $order->hari }} hari
+                                        </td>
+                                        <td>Rp. {{ number_format($order->total_harga) }}</td>
+                                    </tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>

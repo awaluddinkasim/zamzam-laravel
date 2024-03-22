@@ -9,6 +9,7 @@ use App\Models\BarangVarian;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\OrderPayment;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class PesananController extends Controller
@@ -17,7 +18,11 @@ class PesananController extends Controller
     {
         return response()->json([
             'message' => 'Berhasil',
-            'order' => new OrderResource($order)
+            'order' => new OrderResource($order),
+            'rekening' => [
+                'bank' => Setting::where('key', 'bank')->first()->value,
+                'nomor' => Setting::where('key', 'rekening')->first()->value,
+            ]
         ], 200);
     }
 
@@ -35,6 +40,7 @@ class PesananController extends Controller
     {
         $order = new Order();
         $order->user_id = $request->user()->id;
+        $order->hari = $request->hari;
         $order->tgl_penyewaan = $request->tgl_penyewaan;
         $order->status = "Pending";
         $order->save();

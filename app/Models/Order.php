@@ -26,10 +26,17 @@ class Order extends Model
         return $this->hasMany(OrderPayment::class, 'order_id');
     }
 
-    public function totalHarga(): Attribute
+    public function subtotalHarga(): Attribute
     {
         return Attribute::make(
             get: fn () => $this->items->sum('total')
+        );
+    }
+
+    public function totalHarga(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->items->sum('total') * $this->hari
         );
     }
 

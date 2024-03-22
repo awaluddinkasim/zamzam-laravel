@@ -18,9 +18,11 @@ class OrderResource extends JsonResource
         return [
             'id' => $this->id,
             'tgl_penyewaan' => Carbon::parse($this->tgl_penyewaan)->isoFormat('DD MMMM YYYY'),
+            'hari' => $this->hari,
             'status' => $this->status,
             'keterangan' => $this->keterangan,
             'tgl_selesai' => $this->tgl_selesai ? Carbon::parse($this->tgl_selesai)->isoFormat('DD MMMM YYYY') : null,
+            'subtotal_harga' => $this->subtotal_harga,
             'total_harga' => $this->total_harga,
             'dibayar' => $this->dibayar,
             'sisa' => $this->sisa,

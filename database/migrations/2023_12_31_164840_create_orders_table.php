@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->date('tgl_penyewaan');
+            $table->integer('hari')->default(1);
             $table->enum('status', ['Pending', 'Lunas', 'Belum Lunas', 'Selesai']);
             $table->text('keterangan')->nullable();
             $table->date('tgl_selesai')->nullable();

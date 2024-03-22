@@ -75,7 +75,57 @@
                         <div class="menu-title">Konsumen</div>
                     </a>
                 </li>
+                <li>
+                    <a href="#pengaturanModal" role="button" data-bs-toggle="modal">
+                        <div class="parent-icon"><i class="material-icons-outlined">settings</i>
+                        </div>
+                        <div class="menu-title">Pengaturan</div>
+                    </a>
+                </li>
             </ul>
         </nav>
+    </div>
+</div>
+
+<div class="modal fade" id="pengaturanModal" tabindex="-1" aria-labelledby="pengaturanModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="pengaturanModalLabel">Pengaturan</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('pengaturan.save') }}" method="post">
+                @method('PUT')
+                @csrf
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="pemilik" class="form-label">Nama Pemilik</label>
+                        <input type="text" class="form-control" id="pemilik" name="pemilik" autocomplete="off"
+                            value="{{ $pengaturan['pemilik'] }}" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+                                <label for="rekening" class="form-label">Nomor Rekening</label>
+                                <input type="text" class="form-control" id="rekening" name="rekening"
+                                    autocomplete="off" value="{{ $pengaturan['rekening'] }}" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="bank" class="form-label">Nama Bank</label>
+                                <input type="text" class="form-control" id="bank" name="bank"
+                                    autocomplete="off" value="{{ $pengaturan['bank'] }}" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

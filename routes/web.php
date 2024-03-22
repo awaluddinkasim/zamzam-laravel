@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BarangController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\Admin\PengaturanController;
 use App\Http\Controllers\Admin\PenyewaanController;
 use App\Http\Controllers\Admin\PesananController;
 use App\Http\Controllers\Admin\UserController;
@@ -65,6 +66,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('profile', [AdminController::class, 'profile'])->name('profile');
     Route::put('profile', [AdminController::class, 'profileUpdate'])->name('profile.update');
+
+    Route::put('pengaturan', [PengaturanController::class, 'simpan'])->name('pengaturan.save');
 
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
